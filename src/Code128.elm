@@ -59,6 +59,29 @@ type alias Symbol =
     }
 
 
+
+--
+
+
+{-| -}
+stringToCodeSet : String -> Maybe CodeSet
+stringToCodeSet a =
+    let
+        chars : List Char
+        chars =
+            a |> String.toList
+    in
+    if chars |> List.all canBeEncodedUsingC then
+        Just CodeSetC
+
+    else
+        Nothing
+
+
+
+--
+
+
 {-| -}
 table : List Symbol
 table =
