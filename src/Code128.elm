@@ -78,8 +78,23 @@ encode a =
         |> encodeA
         |> onError (\_ -> encodeB chars)
         |> onError (\_ -> encodeC chars)
-        |> Result.map (\v -> v ++ [ stop ])
+        |> Result.map (\v -> v ++ [ checkSum v, stop ])
         |> Result.map (List.concatMap (\v -> barsToWidths v.bars ++ [ Width2 ]))
+
+
+{-| -}
+checkSum : List Symbol -> Symbol
+checkSum a =
+    a
+        |> List.indexedMap (\i v -> v.value * max 1 i)
+        |> List.foldl (+) 0
+        |> remainderBy 103
+        |> (\v ->
+                table
+                    |> List.filter (\vv -> vv.value == v)
+                    |> List.head
+                    |> Maybe.withDefault stop
+           )
 
 
 {-| -}
