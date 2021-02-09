@@ -24,21 +24,26 @@ type Code
 
 {-| -}
 type Interpretation
-    = Char_ Char
+    = -- Starts a Code128.
+      StartA
+    | StartB
+    | StartC
+      -- CodeX causes all following symbols to be interpreted according to the corresponding sub-code.
+    | CodeA
+    | CodeB
+    | CodeC
+      -- ShiftX causes following symbol to be interpreted according to the corresponding sub-code.
+    | ShiftA
+    | ShiftB
+      -- The FNCx codes are used for special purposes.
     | FNC1
     | FNC2
     | FNC3
     | FNC4
-    | CodeA
-    | CodeB
-    | CodeC
-    | ShiftA
-    | ShiftB
+      -- Basics
+    | Char_ Char
     | Digits Int Int
     | Stop
-    | StartA
-    | StartB
-    | StartC
 
 
 {-| -}
