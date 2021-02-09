@@ -74,12 +74,16 @@ encode a =
         chars =
             a |> String.toList
     in
-    chars
-        |> encodeC
-        |> onError (\_ -> encodeB chars)
-        |> onError (\_ -> encodeA chars)
-        |> Result.map (\v -> v ++ [ checkSum v, stop ])
-        |> Result.map (\v -> (v |> List.concatMap (\vv -> barsToWidths vv.bars)) ++ [ Width2 ])
+    if chars |> List.isEmpty then
+        Ok []
+
+    else
+        chars
+            |> encodeC
+            |> onError (\_ -> encodeB chars)
+            |> onError (\_ -> encodeA chars)
+            |> Result.map (\v -> v ++ [ checkSum v, stop ])
+            |> Result.map (\v -> (v |> List.concatMap (\vv -> barsToWidths vv.bars)) ++ [ Width2 ])
 
 
 {-| -}

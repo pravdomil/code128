@@ -4,7 +4,7 @@ import Code128 exposing (Width(..))
 
 
 samples =
-    [ ( "", Nothing )
+    [ ( "", Just [] )
     , ( "undefined", Just [ Width2, Width1, Width1, Width2, Width1, Width4, Width1, Width2, Width4, Width2, Width1, Width1, Width2, Width4, Width1, Width1, Width1, Width2, Width1, Width4, Width1, Width2, Width2, Width1, Width1, Width1, Width2, Width2, Width1, Width4, Width1, Width1, Width2, Width4, Width1, Width2, Width1, Width4, Width2, Width1, Width1, Width2, Width2, Width4, Width1, Width1, Width1, Width2, Width1, Width1, Width2, Width2, Width1, Width4, Width1, Width4, Width1, Width2, Width2, Width1, Width3, Width1, Width2, Width2, Width1, Width2, Width2, Width3, Width3, Width1, Width1, Width1, Width2 ] )
     , ( "undef", Just [ Width2, Width1, Width1, Width2, Width1, Width4, Width1, Width2, Width4, Width2, Width1, Width1, Width2, Width4, Width1, Width1, Width1, Width2, Width1, Width4, Width1, Width2, Width2, Width1, Width1, Width1, Width2, Width2, Width1, Width4, Width1, Width1, Width2, Width4, Width1, Width2, Width1, Width1, Width2, Width1, Width3, Width3, Width2, Width3, Width3, Width1, Width1, Width1, Width2 ] )
     , ( "null", Just [ Width2, Width1, Width1, Width2, Width1, Width4, Width2, Width4, Width1, Width1, Width1, Width2, Width1, Width2, Width4, Width2, Width1, Width1, Width2, Width2, Width1, Width1, Width1, Width4, Width2, Width2, Width1, Width1, Width1, Width4, Width3, Width1, Width4, Width1, Width1, Width1, Width2, Width3, Width3, Width1, Width1, Width1, Width2 ] )
