@@ -67,7 +67,7 @@ type Error
 
 
 {-| -}
-encode : String -> Result Error (List Symbol)
+encode : String -> Result Error (List Width)
 encode a =
     let
         chars : List Char
