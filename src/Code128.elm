@@ -8,7 +8,7 @@ module Code128 exposing (encode)
 
 {-| -}
 type Error
-    = OutOfCodeSet
+    = OutOfCodeSet Char
 
 
 {-| -}
@@ -77,6 +77,19 @@ encode a =
         |> onError (\_ -> encodeC chars)
 
 
+{-| -}
+encodeA : List Char -> Result Error (List Symbol)
+encodeA a =
+    a |> List.map symbolFromCharA |> sequence
+
+
+{-| -}
+symbolFromCharA : Char -> Result Error Symbol
+symbolFromCharA a =
+    table
+        |> List.filter (\v -> v.a == Char_ a)
+        |> List.head
+        |> Result.fromMaybe (OutOfCodeSet a)
 --
 
 
