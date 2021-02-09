@@ -7,6 +7,16 @@ module Code128 exposing (encode)
 
 
 {-| -}
+type alias Symbol =
+    { id : Int
+    , bars : Bars
+    , a : Interpretation
+    , b : Interpretation
+    , c : Interpretation
+    }
+
+
+{-| -}
 type Error
     = OutOfCodeSet Char
 
@@ -47,16 +57,6 @@ type Interpretation
     | Char_ Char
     | Digits Int Int
     | Stop
-
-
-{-| -}
-type alias Symbol =
-    { id : Int
-    , bars : Bars
-    , a : Interpretation
-    , b : Interpretation
-    , c : Interpretation
-    }
 
 
 
