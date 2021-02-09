@@ -1,4 +1,4 @@
-module Code128 exposing (encode)
+module Code128 exposing (Error(..), Width(..), encode)
 
 {-| Sources:
 <https://en.wikipedia.org/wiki/Code_128>
