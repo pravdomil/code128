@@ -284,6 +284,7 @@ table =
     , Symbol 103 (Bars6 Width2 Width1 Width1 Width4 Width1 Width2) StartA StartA StartA
     , Symbol 104 (Bars6 Width2 Width1 Width1 Width2 Width1 Width4) StartB StartB StartB
     , Symbol 105 (Bars6 Width2 Width1 Width1 Width2 Width3 Width2) StartC StartC StartC
+    , Symbol 106 (Bars6 Width2 Width3 Width3 Width1 Width1 Width1) Stop Stop Stop
     ]
 
 
