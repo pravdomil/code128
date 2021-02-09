@@ -287,11 +287,29 @@ table =
     , Symbol 100 (Bars6 Width1 Width1 Width4 Width1 Width3 Width1) CodeB FNC4 CodeB
     , Symbol 101 (Bars6 Width3 Width1 Width1 Width1 Width4 Width1) FNC4 CodeA CodeA
     , Symbol 102 (Bars6 Width4 Width1 Width1 Width1 Width3 Width1) FNC1 FNC1 FNC1
-    , Symbol 103 (Bars6 Width2 Width1 Width1 Width4 Width1 Width2) StartA StartA StartA
-    , Symbol 104 (Bars6 Width2 Width1 Width1 Width2 Width1 Width4) StartB StartB StartB
-    , Symbol 105 (Bars6 Width2 Width1 Width1 Width2 Width3 Width2) StartC StartC StartC
+    , startA
+    , startB
+    , startC
     , Symbol 106 (Bars6 Width2 Width3 Width3 Width1 Width1 Width1) Stop Stop Stop
     ]
+
+
+{-| -}
+startA : Symbol
+startA =
+    Symbol 103 (Bars6 Width2 Width1 Width1 Width4 Width1 Width2) StartA StartA StartA
+
+
+{-| -}
+startB : Symbol
+startB =
+    Symbol 104 (Bars6 Width2 Width1 Width1 Width2 Width1 Width4) StartB StartB StartB
+
+
+{-| -}
+startC : Symbol
+startC =
+    Symbol 105 (Bars6 Width2 Width1 Width1 Width2 Width3 Width2) StartC StartC StartC
 
 
 
