@@ -78,6 +78,13 @@ stringToCodeSet a =
         Nothing
 
 
+{-| -}
+canBeEncodedUsingC : Char -> Bool
+canBeEncodedUsingC a =
+    a >= '0' && a <= '9'
+
+
+
 
 --
 
