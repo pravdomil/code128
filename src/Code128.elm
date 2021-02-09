@@ -206,3 +206,9 @@ onError fn a =
 
         Err b ->
             fn b
+
+
+{-| -}
+sequence : List (Result x a) -> Result x (List a)
+sequence a =
+    a |> List.foldr (Result.map2 (::)) (Ok [])
