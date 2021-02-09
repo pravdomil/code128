@@ -299,7 +299,7 @@ table =
     , startA
     , startB
     , startC
-    , Symbol 106 (Bars6 Width2 Width3 Width3 Width1 Width1 Width1) Stop Stop Stop
+    , stop
     ]
 
 
@@ -319,6 +319,12 @@ startB =
 startC : Symbol
 startC =
     Symbol 105 (Bars6 Width2 Width1 Width1 Width2 Width3 Width2) StartC StartC StartC
+
+
+{-| -}
+stop : Symbol
+stop =
+    Symbol 106 (Bars6 Width2 Width3 Width3 Width1 Width1 Width1) Stop Stop Stop
 
 
 
