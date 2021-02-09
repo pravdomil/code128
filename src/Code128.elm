@@ -1,4 +1,4 @@
-module Code128 exposing (..)
+module Code128 exposing (encode)
 
 {-| Sources:
 <https://en.wikipedia.org/wiki/Code_128>
@@ -58,6 +58,23 @@ type alias Symbol =
     , c : Interpretation
     }
 
+
+
+--
+
+
+{-| -}
+encode : String -> Result Error (List Widths)
+encode a =
+    let
+        chars : List Char
+        chars =
+            a |> String.toList
+    in
+    chars
+        |> encodeA
+        |> onError (\_ -> encodeB chars)
+        |> onError (\_ -> encodeC chars)
 
 
 --
