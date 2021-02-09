@@ -77,6 +77,10 @@ encode a =
         |> onError (\_ -> encodeC chars)
 
 
+
+--
+
+
 {-| -}
 encodeA : List Char -> Result Error (List Symbol)
 encodeA a =
