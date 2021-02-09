@@ -201,6 +201,9 @@ toTuples a =
         b :: c :: rest ->
             rest |> toTuples |> Maybe.map (\v -> ( b, c ) :: v)
 
+        _ ->
+            Nothing
+
 
 
 --
