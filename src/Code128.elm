@@ -1,6 +1,9 @@
 module Code128 exposing (..)
 
-{-| -}
+{-| Sources:
+<https://en.wikipedia.org/wiki/Code_128>
+<https://hackage.haskell.org/package/barcodes-code128>
+-}
 
 
 {-| -}
