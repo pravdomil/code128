@@ -19,7 +19,6 @@ type alias Symbol =
 {-| -}
 type Bars
     = Bars6 Width Width Width Width Width Width
-    | Bars7
 
 
 {-| -}
