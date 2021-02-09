@@ -23,11 +23,6 @@ type Bars
 
 
 {-| -}
-type Error
-    = OutOfCodeSet Char
-
-
-{-| -}
 type Width
     = Width1
     | Width2
@@ -57,6 +52,15 @@ type Interpretation
     | Char_ Char
     | Digits Int Int
     | Stop
+
+
+
+--
+
+
+{-| -}
+type Error
+    = OutOfCodeSet Char
 
 
 
