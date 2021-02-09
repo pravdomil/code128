@@ -94,6 +94,25 @@ symbolFromCharA a =
         |> List.filter (\v -> v.a == Char_ a)
         |> List.head
         |> Result.fromMaybe (OutOfCodeSet a)
+
+
+
+--
+
+
+{-| -}
+encodeB : List Char -> Result Error (List Symbol)
+encodeB a =
+    a |> List.map symbolFromCharB |> sequence
+
+
+{-| -}
+symbolFromCharB : Char -> Result Error Symbol
+symbolFromCharB a =
+    table
+        |> List.filter (\v -> v.b == Char_ a)
+        |> List.head
+        |> Result.fromMaybe (OutOfCodeSet a)
 --
 
 
