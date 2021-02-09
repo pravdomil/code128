@@ -97,7 +97,7 @@ symbolFromCharA a =
     table
         |> List.filter (\v -> v.a == Char_ a)
         |> List.head
-        |> Result.fromMaybe (OutOfCodeSet a)
+        |> Result.fromMaybe (OutOfCodeSet (String.fromChar a))
 
 
 
@@ -116,7 +116,7 @@ symbolFromCharB a =
     table
         |> List.filter (\v -> v.b == Char_ a)
         |> List.head
-        |> Result.fromMaybe (OutOfCodeSet a)
+        |> Result.fromMaybe (OutOfCodeSet (String.fromChar a))
 
 
 
@@ -128,7 +128,7 @@ encodeC : List Char -> Result Error (List Symbol)
 encodeC a =
     a
         |> toTuples
-        |> Result.fromMaybe (OutOfCodeSet '0')
+        |> Result.fromMaybe (OutOfCodeSet "0")
         |> Result.andThen
             (\v ->
                 v |> List.map symbolFromCharC |> sequence
