@@ -78,7 +78,8 @@ encode a =
         |> encodeA
         |> onError (\_ -> encodeB chars)
         |> onError (\_ -> encodeC chars)
-        |> Result.map (List.concatMap (\v -> v.bars |> barsToWidths))
+        |> Result.map (\v -> v ++ [ stop ])
+        |> Result.map (List.concatMap (\v -> barsToWidths v.bars ++ [ Width2 ]))
 
 
 {-| -}
