@@ -200,3 +200,19 @@ table =
     , Symbol 104 (Code Width2 Width1 Width1 Width2 Width1 Width4) StartB StartB StartB
     , Symbol 105 (Code Width2 Width1 Width1 Width2 Width3 Width2) StartC StartC StartC
     ]
+
+
+
+--
+
+
+{-| Recover from a failure in a result.
+-}
+onError : (err -> Result err2 a) -> Result err a -> Result err2 a
+onError fn a =
+    case a of
+        Ok b ->
+            Ok b
+
+        Err b ->
+            fn b
