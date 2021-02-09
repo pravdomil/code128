@@ -75,9 +75,9 @@ encode a =
             a |> String.toList
     in
     chars
-        |> encodeA
+        |> encodeC
         |> onError (\_ -> encodeB chars)
-        |> onError (\_ -> encodeC chars)
+        |> onError (\_ -> encodeA chars)
         |> Result.map (\v -> v ++ [ checkSum v, stop ])
         |> Result.map (\v -> (v |> List.concatMap (\vv -> barsToWidths vv.bars)) ++ [ Width2 ])
 
