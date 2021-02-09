@@ -78,12 +78,12 @@ encode a =
         |> encodeA
         |> onError (\_ -> encodeB chars)
         |> onError (\_ -> encodeC chars)
-        |> Result.map (List.concatMap (\v -> v.bars |> barsToWidth))
+        |> Result.map (List.concatMap (\v -> v.bars |> barsToWidths))
 
 
 {-| -}
-barsToWidth : Bars -> List Width
-barsToWidth (Bars6 a b c d e f) =
+barsToWidths : Bars -> List Width
+barsToWidths (Bars6 a b c d e f) =
     [ a, b, c, d, e, f ]
 
 
