@@ -60,7 +60,7 @@ type Function
 
 {-| -}
 type Error
-    = OutOfCodeSet Char
+    = OutOfCodeSet String
 
 
 
@@ -117,6 +117,61 @@ symbolFromCharB a =
         |> List.filter (\v -> v.b == Char_ a)
         |> List.head
         |> Result.fromMaybe (OutOfCodeSet a)
+
+
+
+--
+
+
+{-| -}
+encodeC : List Char -> Result Error (List Symbol)
+encodeC a =
+    a
+        |> toTuples
+        |> Result.fromMaybe (OutOfCodeSet '0')
+        |> Result.andThen
+            (\v ->
+                v |> List.map symbolFromCharC |> sequence
+            )
+
+
+{-| -}
+symbolFromCharC : ( Char, Char ) -> Result Error Symbol
+symbolFromCharC ( a, b ) =
+    let
+        maybeFn : Maybe Function
+        maybeFn =
+            Maybe.map2 Digits
+                (a |> String.fromChar |> String.toInt)
+                (b |> String.fromChar |> String.toInt)
+
+        error : Error
+        error =
+            OutOfCodeSet (String.fromList [ a, b ])
+    in
+    case maybeFn of
+        Just fn ->
+            table
+                |> List.filter (\v -> v.c == fn)
+                |> List.head
+                |> Result.fromMaybe error
+
+        Nothing ->
+            Err error
+
+
+{-| -}
+toTuples : List Char -> Maybe (List ( Char, Char ))
+toTuples a =
+    case a of
+        [] ->
+            Just []
+
+        b :: c :: rest ->
+            rest |> toTuples |> Maybe.map (\v -> ( b, c ) :: v)
+
+
+
 --
 
 
