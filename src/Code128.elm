@@ -10,9 +10,9 @@ module Code128 exposing (encode)
 type alias Symbol =
     { id : Int
     , bars : Bars
-    , a : Interpretation
-    , b : Interpretation
-    , c : Interpretation
+    , a : Function
+    , b : Function
+    , c : Function
     }
 
 
@@ -31,7 +31,7 @@ type Width
 
 
 {-| -}
-type Interpretation
+type Function
     = -- StartX starts code set.
       StartA
     | StartB
