@@ -64,15 +64,16 @@ type alias Symbol =
 
 
 {-| -}
-stringToCodeSet : String -> Maybe CodeSet
-stringToCodeSet a =
-    let
-        chars : List Char
-        chars =
-            a |> String.toList
-    in
-    if chars |> List.all canBeEncodedUsingC then
+charsToCodeSet : List Char -> Maybe CodeSet
+charsToCodeSet a =
+    if a |> List.all canBeEncodedUsingC then
         Just CodeSetC
+
+    else if a |> List.all canBeEncodedUsingB then
+        Just CodeSetB
+
+    else if a |> List.all canBeEncodedUsingA then
+        Just CodeSetA
 
     else
         Nothing
