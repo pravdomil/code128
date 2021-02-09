@@ -94,7 +94,7 @@ barsToWidth (Bars6 a b c d e f) =
 {-| -}
 encodeA : List Char -> Result Error (List Symbol)
 encodeA a =
-    a |> List.map symbolFromCharA |> sequence
+    a |> List.map symbolFromCharA |> sequence |> Result.map ((::) startA)
 
 
 {-| -}
@@ -113,7 +113,7 @@ symbolFromCharA a =
 {-| -}
 encodeB : List Char -> Result Error (List Symbol)
 encodeB a =
-    a |> List.map symbolFromCharB |> sequence
+    a |> List.map symbolFromCharB |> sequence |> Result.map ((::) startB)
 
 
 {-| -}
@@ -137,7 +137,7 @@ encodeC a =
         |> Result.fromMaybe (OutOfCodeSet "0")
         |> Result.andThen
             (\v ->
-                v |> List.map symbolFromCharC |> sequence
+                v |> List.map symbolFromCharC |> sequence |> Result.map ((::) startC)
             )
 
 
