@@ -20,8 +20,8 @@ type Width
 
 
 {-| -}
-type Widths
-    = Code Width Width Width Width Width Width
+type Bars
+    = Bars6 Width Width Width Width Width Width
     | StopCode
 
 
@@ -52,7 +52,7 @@ type Interpretation
 {-| -}
 type alias Symbol =
     { value : Int
-    , widths : Widths
+    , bars : Bars
     , a : Interpretation
     , b : Interpretation
     , c : Interpretation
