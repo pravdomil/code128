@@ -64,33 +64,6 @@ type alias Symbol =
 
 
 {-| -}
-charsToCodeSet : List Char -> Maybe CodeSet
-charsToCodeSet a =
-    if a |> List.all canBeEncodedUsingC then
-        Just CodeSetC
-
-    else if a |> List.all canBeEncodedUsingB then
-        Just CodeSetB
-
-    else if a |> List.all canBeEncodedUsingA then
-        Just CodeSetA
-
-    else
-        Nothing
-
-
-{-| -}
-canBeEncodedUsingC : Char -> Bool
-canBeEncodedUsingC a =
-    a >= '0' && a <= '9'
-
-
-
-
---
-
-
-{-| -}
 table : List Symbol
 table =
     [ Symbol 0 (Code Width2 Width1 Width2 Width2 Width2 Width2) (Char_ ' ') (Char_ ' ') (Digits 0 0)
