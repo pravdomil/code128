@@ -64,7 +64,7 @@ type alias Symbol =
 
 
 {-| -}
-encode : String -> Result Error (List Widths)
+encode : String -> Result Error (List Symbol)
 encode a =
     let
         chars : List Char
