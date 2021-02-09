@@ -27,18 +27,18 @@ type Code
 
 {-| -}
 type Interpretation
-    = -- Starts a Code128.
+    = -- StartX starts code set.
       StartA
     | StartB
     | StartC
-      -- CodeX causes all following symbols to be interpreted according to the corresponding sub-code.
+      -- CodeX changes code set.
     | CodeA
     | CodeB
     | CodeC
-      -- ShiftX causes following symbol to be interpreted according to the corresponding sub-code.
+      -- ShiftX changes code set for following symbol.
     | ShiftA
     | ShiftB
-      -- The FNCx codes are used for special purposes.
+      -- FNCx is for special purposes.
     | FNC1
     | FNC2
     | FNC3
