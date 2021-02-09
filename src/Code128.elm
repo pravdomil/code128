@@ -80,6 +80,12 @@ encode a =
         |> onError (\_ -> encodeC chars)
 
 
+{-| -}
+barsToWidth : Bars -> List Width
+barsToWidth (Bars6 a b c d e f) =
+    [ a, b, c, d, e, f ]
+
+
 
 --
 
