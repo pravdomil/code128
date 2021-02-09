@@ -17,6 +17,12 @@ type alias Symbol =
 
 
 {-| -}
+type Bars
+    = Bars6 Width Width Width Width Width Width
+    | Bars7
+
+
+{-| -}
 type Error
     = OutOfCodeSet Char
 
@@ -27,12 +33,6 @@ type Width
     | Width2
     | Width3
     | Width4
-
-
-{-| -}
-type Bars
-    = Bars6 Width Width Width Width Width Width
-    | StopCode
 
 
 {-| -}
