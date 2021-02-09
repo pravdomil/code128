@@ -51,7 +51,7 @@ type Interpretation
 
 {-| -}
 type alias Symbol =
-    { value : Int
+    { id : Int
     , bars : Bars
     , a : Interpretation
     , b : Interpretation
