@@ -8,7 +8,7 @@ module Code128 exposing (encode)
 
 {-| -}
 type alias Symbol =
-    { id : Int
+    { value : Int
     , bars : Bars
     , a : Function
     , b : Function
