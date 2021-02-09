@@ -8,7 +8,7 @@ module Code128 exposing (..)
 
 {-| -}
 type Error
-    = EncodeError Char
+    = OutOfCodeSet
 
 
 {-| -}
