@@ -1,9 +1,13 @@
-module Code128 exposing (Error(..), Width(..), fromString)
+module Code128 exposing (Error(..), Width(..), fromString, widthsToSvg)
 
 {-| Sources:
 <https://en.wikipedia.org/wiki/Code_128>
 <https://hackage.haskell.org/package/barcodes-code128>
 -}
+
+import Html.Attributes exposing (attribute)
+import Svg exposing (Svg)
+import Svg.Attributes as Attributes
 
 
 {-| -}
@@ -87,6 +91,55 @@ fromString a =
 
 
 {-| -}
+widthsToSvg : Int -> List Width -> Svg msg
+widthsToSvg height a =
+    let
+        fold : Width -> ( List (Svg msg), Int ) -> ( List (Svg msg), Int )
+        fold width ( elements, x ) =
+            let
+                width_ : Int
+                width_ =
+                    width |> widthToInt
+
+                fill_ : String
+                fill_ =
+                    if elements |> List.length |> remainderBy 2 |> (==) 0 then
+                        "black"
+
+                    else
+                        "white"
+
+                element : Svg msg
+                element =
+                    Svg.rect
+                        [ Attributes.x (x |> String.fromInt)
+                        , Attributes.y (0 |> String.fromInt)
+                        , Attributes.width (width_ |> String.fromInt)
+                        , Attributes.height (height |> String.fromInt)
+                        , Attributes.fill fill_
+                        ]
+                        []
+            in
+            ( element :: elements
+            , x + width_
+            )
+    in
+    a
+        |> List.foldl fold ( [], 0 )
+        |> (\( elements, width ) ->
+                Svg.svg
+                    [ attribute "xmlns" "http://www.w3.org/2000/svg"
+                    , Attributes.viewBox ([ 0, 0, width, height ] |> List.map String.fromInt |> String.join " ")
+                    ]
+                    (elements |> List.reverse)
+           )
+
+
+
+--
+
+
+{-| -}
 checkSum : List Symbol -> Symbol
 checkSum a =
     a
@@ -105,6 +158,23 @@ checkSum a =
 barsToWidths : Bars -> List Width
 barsToWidths (Bars6 a b c d e f) =
     [ a, b, c, d, e, f ]
+
+
+{-| -}
+widthToInt : Width -> Int
+widthToInt a =
+    case a of
+        Width1 ->
+            1
+
+        Width2 ->
+            2
+
+        Width3 ->
+            3
+
+        Width4 ->
+            4
 
 
 
