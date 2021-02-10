@@ -23,7 +23,7 @@ tests =
             (\i ( a, b ) ->
                 test ("sample " ++ String.fromInt i ++ " \"" ++ a ++ "\"") <|
                     \_ ->
-                        Code128.encode a
+                        Code128.fromString a
                             |> Result.toMaybe
                             |> Expect.equal b
             )

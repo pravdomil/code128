@@ -1,4 +1,4 @@
-module Code128 exposing (Error(..), Width(..), encode)
+module Code128 exposing (Error(..), Width(..), fromString)
 
 {-| Sources:
 <https://en.wikipedia.org/wiki/Code_128>
@@ -67,8 +67,8 @@ type Error
 
 
 {-| -}
-encode : String -> Result Error (List Width)
-encode a =
+fromString : String -> Result Error (List Width)
+fromString a =
     let
         chars : List Char
         chars =
