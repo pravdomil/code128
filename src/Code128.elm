@@ -51,7 +51,7 @@ type Function
     | FNC2
     | FNC3
     | FNC4
-      -- Basics
+      -- Actual data.
     | Char_ Char
     | Digits Int Int
     | Stop
