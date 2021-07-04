@@ -64,6 +64,7 @@ type Function
 {-| -}
 type Error
     = OutOfCodeSet String
+    | OddNumberOfDigits
 
 
 
@@ -230,7 +231,7 @@ encodeC : List Char -> Result Error (List Symbol)
 encodeC a =
     a
         |> toTuples
-        |> Result.fromMaybe (OutOfCodeSet "0")
+        |> Result.fromMaybe (OddNumberOfDigits)
         |> Result.andThen
             (\v ->
                 v
